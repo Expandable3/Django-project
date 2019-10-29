@@ -1,0 +1,14 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+body{
+    padding-top: 20px;
+}
+
+
+ul.row1 li:nth-child(even):hover{color:green;}
+     
+
+ul.row1 li:nth-child(odd):hover{color:lightgreen;}

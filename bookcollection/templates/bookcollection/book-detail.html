@@ -1,0 +1,40 @@
+{% extends  "./base.html" %}
+
+{% block content %}
+<h1>Title: {{book.title }}</h1>
+<!-- <p><strong>Author:</strong><a href="{% url 'author'  %}">{{book.author}}</a> </p> -->
+<p><strong>ISBN:</strong>{{book.isbn}}</p>
+<p><strong>Genre:</strong>{{book.genre.all|join:','}}</p>
+<p><strong>Summary:</strong>{{book.summary}}</p>
+
+
+<div style='margin-top:30px '>
+
+</div>
+<div>
+<h4>copies</h4>
+<hr>
+{% for copy in book.bookinstances_set.all %}
+
+
+{% if copy.status == 'a' %}
+<p>Available</p>
+{% elif copy.status == 'm' %}
+<p>Maintained</p>
+{% elif copy.status == 'o'  %}
+<p>Onloan</p>
+{% else %}
+<p>Reserved</p>
+{% endif %}
+{% if copy.status == r %}
+<p><strong>DueDate:{{copy.due_back}}</strong></p>
+{% endif %}
+
+<p><strong>Imprint</strong>{{copy.imprint}}</p>
+<p><strong>ID:</strong>{{copy.id}}</p>
+{% endfor %}
+</div>
+{% endblock %}
+
+   
+            

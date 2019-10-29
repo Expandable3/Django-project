@@ -1,0 +1,14 @@
+{% extends './base.html'      %}
+
+{% block content %}
+<h2>About Author</h2> 
+<hr>
+{% if authordetail %}
+<div>
+    <p><strong>Name:</strong> {{authordetail.name}} </p>
+    <p><strong>Birth-date:</strong>{{authordetail.dateofbith}}</p>
+    <p><strong>Died:</strong>{{authordetail.dateofdeath}} </p>
+</div>
+{% endif %}
+
+{% endblock %}

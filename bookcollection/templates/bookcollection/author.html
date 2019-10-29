@@ -1,0 +1,20 @@
+{% extends './base.html' %}
+
+
+{%  block content %}
+<h2>Author details</h2>
+
+<hr>
+
+<div>
+    <ul>
+        {% for info in authorinfo  %}
+        <li><strong>Name:</strong> <a href="{{  info.get_absolute_url }} ">{{ info.name }} </a> </li>
+        <!--- <p><strong>Birth-date:</strong>{{info.dateofbith }}</p>
+        <p><strong>Died</strong>{{info.dateofdeath}}</p> -->
+        {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock %}

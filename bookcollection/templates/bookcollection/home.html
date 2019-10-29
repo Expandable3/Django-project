@@ -1,0 +1,15 @@
+
+{% extends "./base.html" %}
+
+{% block content %}
+    <h1>Local Library home </h1>
+    <p>Welcome</p>
+    <h2>The Content</h2>
+    <p>Library has the following record</p>
+    <ul class='row1' >
+        <li><b>Book:</b>{{ numbook }}</li>
+        <li><b>Author:</b>{{ numauthor }}</li>
+        <li><b>Books Copies</b> {{ numcopier }}</li>
+        <li><b>Books Available</b>{{ numavailable }}</li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "./base.html" %}
+{% block content %}
+<h2>Please renew your book here</h2>
+<h5> <b> Title:</b> {{ book_instance.book.title }}</h5>
+
+<p>Borrower:{{book_instance.borrower}}</p>
+
+<p>DueDate:{{book_instance.due_back}}</p>
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+        {{renewform.as_table}}
+    </table>
+    <input type="submit" value='Submit'>
+</form>
+{% endblock %}
+
+
