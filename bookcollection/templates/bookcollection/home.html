@@ -1,0 +1,95 @@
+
+{% extends "./base.html" %}
+
+{% block content %}
+{% load static %}
+    <h1> Welcome  </h1>
+    
+    <p style="padding: 3px 0px;">Library has the following record</p>
+
+    <div class="fix">
+
+
+
+    <div class="card mb-3" id='style'  >
+            <div class="row no-gutters">
+              <div class="col-md-4" style="size: width ;">
+                <img   src="{% static  'images/book-image.png'  %}" class="card-img" alt="..."  ">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <!-- <h5 class="card-title">Card title</h5> -->
+                  
+                 <h5 class="card-text" style="font-size:50px;"> {{numbook}} </h5>
+                  <p class="card-text"> <b class=text-muted> Text Books! </b> </p>
+                </div>
+              </div>
+            </div>
+        </div>
+    
+        <br>
+        <div class="card mb-3" id="style" >
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <!-- <img src="..." class="card-img" alt="..."> -->
+                <img src="{% static  'images/writter.png'  %}" class="card-img" alt="..."  ">
+
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <!-- <h5 class="card-title">Card title</h5> -->
+                  <h5 class="card-text" style="font-size:50px;"> {{numauthor}}</h5>
+                  <p class="card-text"> <b class=text-muted>  Writer! </b> </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <br>
+        <div class="card mb-3" id='style' >
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <!-- <img src="..." class="card-img" alt="..."> -->
+                <img src="{% static  'images/2.png'  %}" class="card-img" alt="..."  ">
+
+            </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <!-- <h5 class="card-title">Card title</h5> -->
+                  <h5 class="card-text" style="font-size:50px" >{{numcopies}}</h5>
+                  <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                  <p class="card-text"> <b class=text-muted> Copies! </b> </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <br>
+        <div class="card mb-3" id="style" >
+            <div class="row no-gutters">
+              <div class="col-md-4">
+                <!-- <img src="..." class="card-img" alt="..."> -->
+                <img src="{% static  'images/available.png'  %}" class="card-img" alt="..."  ">
+
+            </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <!-- <h5 class="card-title">Card title</h5> -->
+                  <h5 class="card-text" style="font-size:50px" >{{numavailable}}</h5>
+                  <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                  <p class="card-text"> <b class=text-muted> Available! </b> </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <br>
+    
+    </div>
+
+
+
+
+
+
+
+
+{% endblock %}

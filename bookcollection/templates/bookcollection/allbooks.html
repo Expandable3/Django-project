@@ -1,0 +1,18 @@
+{% extends "./base.html" %}
+
+{% block content %}
+
+<h2 style="padding-bottom:15px;">Books Status</h2>
+<hr>
+
+<ul class="home">
+    {% for x in users %}
+    {% for y in booklist %}
+    {% if y.borrower == x %}
+    
+    <li><a href="{% url 'renew-system' y.pk %}">{{y.book1.title}}</a> ({{y.due_back}}): <strong><i>{{y.borrower}}</i></strong> </li>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+</ul>
+{% endblock %}

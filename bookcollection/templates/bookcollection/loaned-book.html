@@ -1,0 +1,19 @@
+{% extends './base.html' %}
+
+{% block content  %}
+
+<h2>Borrowed Books</h2>
+<hr>
+<ul> {% if bookborrow %}
+
+  {% for bookinst in bookborrow %} 
+<li><a href="{% url 'book-detail' bookinst.book1.pk %}">{{bookinst.book1.title}}</a> ({{ bookinst.due_back }}) :   
+  <b><a  href="{% url 'userrenewsystem' bookinst.pk %}">Renew</a> </b>     
+  </li>
+  {% endfor %}
+</ul>
+    {% else %}
+  <p>There are no books borrowed.</p>
+    {% endif %}
+  {% endblock %}  
+

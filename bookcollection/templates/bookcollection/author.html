@@ -1,0 +1,44 @@
+{% extends './base.html' %}
+
+
+{%  block content %}
+<h2>Author Details</h2>
+
+<hr>
+<!-- 
+<div>
+    <ul class=home>
+        {% for info in authorinfo  %}
+        <div class=flex>
+
+        <li class=list ><strong>Name:</strong> <a href="{{  info.get_absolute_url }} ">{{ info.name }} </a> </li>
+        <!--- <p><strong>Birth-date:</strong>{{info.dateofbith }}</p>
+        <p><strong>Died</strong>{{info.dateofdeath}}</p> -->
+      
+        <!-- <img class="selector"  src="{{info.image.url}}" alt="">      -->
+        <!-- style="border-radius:50%;margin-left: 1200px; -->
+        <!-- height="200px" width="143px" -->
+        <!-- <hr>  -->
+        <!-- </div> -->
+        <!-- {% endfor %} -->
+    <!-- </ul> -->
+<!-- </div> --> 
+
+<div class=flex >
+    {% for info in authorinfo %}
+    <a style="color:black" href="{{  info.get_absolute_url }} "> 
+    <div class="card " style="width:18rem;margin:4em;">
+        
+        <img class="card-img-top" id="img-1" src="{{info.image.url}}" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text"> <strong> {{info.name}} </strong> </p>   
+           <p class="card-text" >  {{info.dateofbith}}-{{info.dateofdeath}} </p>   
+        
+        </div>
+      </div>
+        </a>
+      {% endfor %}
+</div>
+
+
+{% endblock %}

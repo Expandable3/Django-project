@@ -1,0 +1,59 @@
+{% extends "../bookcollection/base.html" %}
+
+{% block content %}
+
+{% load static %}
+<div  style="background-image:url('{% static 'images/lib.jpg' %}')" class=background>
+    {% if form.errors %}
+
+<p>Your username and password does not match please try again</p>
+
+{% endif %}
+
+{%  if next %}
+    <p>
+        first this          
+    </p>
+    {% if user.is_authenticated %}
+    <p>your account does not have access to this page please login withn
+        an account which has access
+    </p>
+    {% else %}
+    <p>Please login to see this page</p>
+    {% endif %}
+{% endif %}
+
+<div class=form>
+    <h4 style="margin-left: 3em;" class=login  > Login</h4>
+    <form action="{% url 'login' %}" method="post">
+        
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>{{form.username.label_tag}}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr id=table>
+                <br>
+                <td>{{form.password.label_tag}}</td>
+                <td>{{form.password}}</td>
+            </tr>   
+        </table>
+        <br>
+        <input style="margin-left: 6em; border-radius: 15px;" type="submit" class="btn btn-primary btn-lg " value="submit">
+        <input type="hidden" name="next" value="{{ next }}"  >
+    </form>
+    <br>
+    <br>
+    <hr>
+   
+    <p><a style="margin-left: 5em; font-size: 20px;" href="{% url 'password_reset' %}"> Lost password ? </a> </p>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</div>
+{% endblock %}

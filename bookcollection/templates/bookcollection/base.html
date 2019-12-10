@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block title %}  <title>local library</title> {% endblock %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/2.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Song+Myung" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans|Yanone+Kaffeesatz" rel="stylesheet">
+</head>
+<body>
+    
+    <div class=main>
+        <img src="{% static 'images/books.png' %}"   >
+        <h2 id='hding'>Book Stack</h2>
+         
+    </div>
+<br>
+    
+    <div class="container-fluid">
+       
+            <div class= >
+                {%block sidebar %}
+                <ul class="navigation" id="myDIV" >
+                    <li ><a href="{%url 'catalog' %}">Home</a></li>
+                    <li><a href="{% url 'books' %}">ALL Books</a></li>
+                    <li><a href="{% url 'author' %}">All Author</a></li>
+                    {% if user.is_authenticated %}
+                    
+                   
+                    {% if perms.bookcollection.can_mark_returned and  perms.bookcollection.staff %} 
+                    <li ><a href="{% url 'allbooks' %}">Status</a></li>
+                    <li><a href="{% url 'available' %}">Issue</a></li>
+                    <li class=right><a href="" disabled="disabled" > <strong> User:</strong> <i>{{user}} </i> </a> </li>
+                    <li><a class="active" href="{% url 'logout' %}">Logout</a></li>    
+                    {% else %}
+                    <li><a href="{% url 'borrowed' %}">Borrowed Books</a></li>
+                    <li class="right"><a href="" disabled="disabled" > <strong> User:</strong> <i>{{user}} </i> </a> </li>
+                    <li ><a class='active'   href="{% url 'logout'%}"> Logout </a></li> 
+                    {% endif %}              
+                    {% else %}
+                    <li class="right"><a class="active" href="{% url 'login' %}"> Login</a></li>
+                    {% endif %} 
+                
+                </ul>  
+
+                {% endblock %}
+                <!-- <script> -->
+                        <!-- // Add active class to the current button (highlight it) -->
+                        <!-- var header = document.getElementById("myDIV"); -->
+                        <!-- var btns = header.getElementsByClassName("navigation li a"); -->
+                        <!-- for (var i = 0; i < btns.length; i++) { -->
+                          <!-- btns[i].addEventListener("click", function() { -->
+                          <!-- var current = document.getElementsByClassName("active"); -->
+                          <!-- current[0].className = current[0].className.replace(" active", ""); -->
+                          <!-- this.className += " active"; -->
+                          <!-- }); -->
+                        <!-- } -->
+                        <!-- </script> -->
+            
+
+            </div>
+
+            <div> {% block content %}<!--  this is content -->{% endblock %}</div>
+        
+
+    
+    </div>
+</body>
+</html> 

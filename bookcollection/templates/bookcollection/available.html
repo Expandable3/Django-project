@@ -1,0 +1,16 @@
+{% extends "./base.html" %}
+
+
+{% block content %}
+<h2>Book Issuing</h2>
+<hr>
+{%for x in book%}
+{% for y in x.bookinstances_set.all %}
+{% if y.status  ==  'a' %}
+
+<h4><strong> <a href="{% url 'issue' y.pk    %}"> Title:</strong>{{x.title}} </a> </h4>
+{% endif %}
+{% endfor %}
+
+{%  endfor %}
+{% endblock %}
